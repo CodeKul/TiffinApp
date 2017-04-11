@@ -43,9 +43,15 @@ public class MainActivity extends Activity {
         };
 
         final Button btnOkay = (Button) findViewById(R.id.btnOkay);
-        btnOkay.setOnClickListener(click);
+        //btnOkay.setOnClickListener(click);
+        btnOkay.setOnClickListener(v -> getAndUpper(edtUserName) );
+        btnOkay.setOnClickListener(this::clicked);
 
         //btnOkay.setOnClickListener(new Click());
+    }
+
+    private void clicked(View view) {
+
     }
 
     private class Click implements  View.OnClickListener {
