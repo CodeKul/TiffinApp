@@ -9,13 +9,15 @@
     android:orientation="vertical">
 
     <EditText
-        android:layout_width="300px"
-        android:layout_height="100px"
+        android:id="@+id/edtUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:hint="User Name"/>
 
     <Button
-        android:layout_width="300px"
-        android:layout_height="100px"
+        android:id="@+id/btnOkay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Okay"/>
 
 </LinearLayout>
