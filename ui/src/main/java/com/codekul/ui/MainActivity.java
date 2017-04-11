@@ -1,13 +1,10 @@
 package com.codekul.ui;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 public class MainActivity extends Activity {
 
@@ -15,6 +12,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        viaXml();
+    }
+    private void viaCode() {
         final LinearLayout rootLayout = new LinearLayout(this);
         rootLayout.setOrientation(LinearLayout.VERTICAL);
         rootLayout.setLayoutParams(new ViewGroup.LayoutParams(300,300));
@@ -25,5 +25,9 @@ public class MainActivity extends Activity {
         rootLayout.addView(edtName);
 
         setContentView(rootLayout);
+    }
+
+    private void viaXml() {
+        setContentView(R.layout.activity_main);
     }
 }
