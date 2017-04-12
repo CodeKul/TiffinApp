@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/R176489AND.iml" filepath="$PROJECT_DIR$/R176489AND.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/interactvitycommunication/interactvitycommunication.iml" filepath="$PROJECT_DIR$/interactvitycommunication/interactvitycommunication.iml" />
       <module fileurl="file://$PROJECT_DIR$/nesteslayout/nesteslayout.iml" filepath="$PROJECT_DIR$/nesteslayout/nesteslayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/relativelayout/relativelayout.iml" filepath="$PROJECT_DIR$/relativelayout/relativelayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/samplelib/samplelib.iml" filepath="$PROJECT_DIR$/samplelib/samplelib.iml" />
