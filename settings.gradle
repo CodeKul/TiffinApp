@@ -1,1 +1,1 @@
-include ':app', ':ui', ':samplelib', ':relativelayout'
+include ':app', ':ui', ':samplelib', ':relativelayout', ':viewproperties'

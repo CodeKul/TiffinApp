@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/relativelayout" />
             <option value="$PROJECT_DIR$/samplelib" />
             <option value="$PROJECT_DIR$/ui" />
+            <option value="$PROJECT_DIR$/viewproperties" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
