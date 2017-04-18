@@ -1,1 +1,1 @@
-include ':app', ':ui', ':samplelib', ':relativelayout', ':viewproperties', ':nesteslayout', ':weighted', ':interactvitycommunication', ':compoundview', ':customview', ':viewanimations', ':listview'
+include ':app', ':ui', ':samplelib', ':relativelayout', ':viewproperties', ':nesteslayout', ':weighted', ':interactvitycommunication', ':compoundview', ':customview', ':viewanimations', ':listview', ':activitylifecycle'
