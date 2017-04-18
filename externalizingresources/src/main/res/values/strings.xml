@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ExternalizingResources</string>
+    <string name="myText">codekul.com</string>
+
+    <string-array name="country">
+        <item>India</item>
+        <item>Japan</item>
+    </string-array>
+</resources>
