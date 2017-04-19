@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.codekul.fragments.MainActivity"
+    android:padding="@dimen/little">
+
+   <fragment
+       android:id="@+id/oneFragment"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/more"
+       class="com.codekul.fragments.OneFragment"
+       />
+
+   <fragment
+       android:id="@+id/twoFragment"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_below="@id/oneFragment"
+       android:layout_marginTop="@dimen/little"
+       class="com.codekul.fragments.TwoFragment"/>
+
+</RelativeLayout>
