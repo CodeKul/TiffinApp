@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/compoundview/compoundview.iml" filepath="$PROJECT_DIR$/compoundview/compoundview.iml" />
       <module fileurl="file://$PROJECT_DIR$/customview/customview.iml" filepath="$PROJECT_DIR$/customview/customview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/externalizingresources/externalizingresources.iml" filepath="$PROJECT_DIR$/externalizingresources/externalizingresources.iml" />
       <module fileurl="file://$PROJECT_DIR$/interactvitycommunication/interactvitycommunication.iml" filepath="$PROJECT_DIR$/interactvitycommunication/interactvitycommunication.iml" />
       <module fileurl="file://$PROJECT_DIR$/listview/listview.iml" filepath="$PROJECT_DIR$/listview/listview.iml" />
       <module fileurl="file://$PROJECT_DIR$/nesteslayout/nesteslayout.iml" filepath="$PROJECT_DIR$/nesteslayout/nesteslayout.iml" />

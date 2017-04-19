@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="normalTextStyle" parent="AppTheme">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/little</item>
+        <item name="android:background">@drawable/roud_button</item>
+    </style>
+
 </resources>
