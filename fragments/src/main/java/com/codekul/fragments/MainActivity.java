@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction txn = manager.beginTransaction();
-        txn.add(R.id.frameFrag, fragment);
+       // txn.add(R.id.frameFrag, fragment);
+        txn.replace(R.id.frameFrag, fragment);
         txn.commit();
     }
 }

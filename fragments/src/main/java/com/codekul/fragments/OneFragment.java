@@ -1,6 +1,7 @@
 package com.codekul.fragments;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 //import android.app.Fragment;
 import android.support.v4.app.Fragment;
@@ -22,6 +23,30 @@ public class OneFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_one, container, false);
+        final Click click = new Click();
+        final View view = inflater.inflate(R.layout.fragment_one, container, false);
+        view.findViewById(R.id.btnRed).setOnClickListener(click);
+        view.findViewById(R.id.btnGreen).setOnClickListener(click);
+        view.findViewById(R.id.btnBlue).setOnClickListener(click);
+        view.findViewById(R.id.btnLogin).setOnClickListener(click);
+        return view;
+    }
+
+    private class Click implements  View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            if(v.getId() == R.id.btnRed) {
+                ((MainActivity)getActivity()).loadFragment(TwoFragment.getInstance(Color.RED));
+            }
+            else if(v.getId() == R.id.btnGreen) {
+                ((MainActivity)getActivity()).loadFragment(TwoFragment.getInstance(Color.GREEN));
+            }
+            else if(v.getId() == R.id.btnBlue){
+                ((MainActivity)getActivity()).loadFragment(TwoFragment.getInstance(Color.BLUE));
+            }
+            else {
+                ((MainActivity)getActivity()).loadFragment(new LoginFragment());
+            }
+        }
     }
 }
