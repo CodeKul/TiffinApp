@@ -1,6 +1,7 @@
 package com.codekul.fragments;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,17 +14,29 @@ import android.view.ViewGroup;
  */
 public class TwoFragment extends Fragment {
 
+    public static TwoFragment getInstance(int color) {
+        TwoFragment frag = new TwoFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("myColor", color);
+        frag.setArguments(bundle);
+
+        return frag;
+    }
 
     public TwoFragment() {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_two, container, false);
+
+        Bundle args = getArguments();
+
+        final View rootView = inflater.inflate(R.layout.fragment_two, container, false);
+        rootView.setBackgroundColor(args.getInt("myColor"));
+
+        return rootView;
     }
 
 }

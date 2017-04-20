@@ -14,12 +14,19 @@
        class="com.codekul.fragments.OneFragment"
        />
 
-   <fragment
-       android:id="@+id/twoFragment"
+   <!--&lt;!&ndash;<fragment-->
+       <!--android:id="@+id/twoFragment"-->
+       <!--android:layout_width="match_parent"-->
+       <!--android:layout_height="match_parent"-->
+       <!--android:layout_below="@id/oneFragment"-->
+       <!--android:layout_marginTop="@dimen/little"-->
+       <!--class="com.codekul.fragments.TwoFragment"/>&ndash;&gt;-->
+
+   <FrameLayout
+       android:id="@+id/frameFrag"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:layout_below="@id/oneFragment"
-       android:layout_marginTop="@dimen/little"
-       class="com.codekul.fragments.TwoFragment"/>
+       android:layout_marginTop="@dimen/little"/>
 
 </RelativeLayout>
