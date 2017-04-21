@@ -36,16 +36,16 @@ public class OneFragment extends Fragment {
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.btnRed) {
-                ((MainActivity)getActivity()).loadFragment(TwoFragment.getInstance(Color.RED));
+                ((MainActivity)getActivity()).loadFragmentV2(TwoFragment.getInstance(Color.RED));
             }
             else if(v.getId() == R.id.btnGreen) {
-                ((MainActivity)getActivity()).loadFragment(TwoFragment.getInstance(Color.GREEN));
+                ((MainActivity)getActivity()).loadFragmentV2(TwoFragment.getInstance(Color.GREEN));
             }
             else if(v.getId() == R.id.btnBlue){
-                ((MainActivity)getActivity()).loadFragment(TwoFragment.getInstance(Color.BLUE));
+                ((MainActivity)getActivity()).loadFragmentV2(TwoFragment.getInstance(Color.BLUE));
             }
             else {
-                ((MainActivity)getActivity()).loadFragment(new LoginFragment());
+                ((MainActivity)getActivity()).loadFragmentV2(new LoginFragment());
             }
         }
     }
