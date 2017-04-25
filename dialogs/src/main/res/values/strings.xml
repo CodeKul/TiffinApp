@@ -5,4 +5,5 @@
     <string name="btnTimePicker">Time Picker</string>
     <string name="btnProgress">Progress</string>
     <string name="btnCustom">Custom</string>
+    <string name="btnOkay">Okay</string>
 </resources>

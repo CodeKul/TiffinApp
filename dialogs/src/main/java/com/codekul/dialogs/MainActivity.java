@@ -19,13 +19,11 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager manager = getSupportFragmentManager();
         MyDialog dialog = new MyDialog();
         dialog.setAlertClick((di, which) -> {
-            if(which == DialogInterface.BUTTON_POSITIVE) {
+            if (which == DialogInterface.BUTTON_POSITIVE) {
                 mt("positive");
-            }
-            else if(which == DialogInterface.BUTTON_NEGATIVE) {
+            } else if (which == DialogInterface.BUTTON_NEGATIVE) {
                 mt("negative");
-            }
-            else {
+            } else {
                 mt("neutral");
             }
         });
@@ -39,8 +37,31 @@ public class MainActivity extends AppCompatActivity {
     public void datePicker(View view) {
         MyDialog dialog = new MyDialog();
         dialog.setDateSetListener((di, year, month, dayOfMonth) -> {
-            mt(""+dayOfMonth +" - "+month +" - "+year);
+            mt("" + dayOfMonth + " - " + month + " - " + year);
         });
         dialog.show(getSupportFragmentManager(), MyDialog.TAG_DATE);
+    }
+
+    public void timePicker(View v) {
+        showDialog(MyDialog.TAG_TIME);
+    }
+
+    private void showDialog(String tag) {
+
+        MyDialog dialog = new MyDialog();
+        if (tag.equals(MyDialog.TAG_TIME)) {
+            dialog.setTimeSetListener((view, hourOfDay, minute) -> {
+                mt("" + hourOfDay + " : " + minute );
+            });
+        }
+        dialog.show(getSupportFragmentManager(), tag);
+    }
+
+    public void progress(View view) {
+        showDialog(MyDialog.TAG_PROGRESS);
+    }
+
+    public void custom(View view) {
+        showDialog(MyDialog.TAG_CUSTOM);
     }
 }
