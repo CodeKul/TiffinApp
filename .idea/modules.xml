@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/dialogs/dialogs.iml" filepath="$PROJECT_DIR$/dialogs/dialogs.iml" />
       <module fileurl="file://$PROJECT_DIR$/externalizingresources/externalizingresources.iml" filepath="$PROJECT_DIR$/externalizingresources/externalizingresources.iml" />
       <module fileurl="file://$PROJECT_DIR$/fragments/fragments.iml" filepath="$PROJECT_DIR$/fragments/fragments.iml" />
+      <module fileurl="file://$PROJECT_DIR$/intentsandintentfilters/intentsandintentfilters.iml" filepath="$PROJECT_DIR$/intentsandintentfilters/intentsandintentfilters.iml" />
       <module fileurl="file://$PROJECT_DIR$/interactvitycommunication/interactvitycommunication.iml" filepath="$PROJECT_DIR$/interactvitycommunication/interactvitycommunication.iml" />
       <module fileurl="file://$PROJECT_DIR$/listview/listview.iml" filepath="$PROJECT_DIR$/listview/listview.iml" />
       <module fileurl="file://$PROJECT_DIR$/nesteslayout/nesteslayout.iml" filepath="$PROJECT_DIR$/nesteslayout/nesteslayout.iml" />

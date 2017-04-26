@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">IntentsAndIntentFilters</string>
+    <string name="btnSport">Sport</string>
+    <string name="btnNews">News</string>
+</resources>
