@@ -27,6 +27,7 @@
             <option value="$PROJECT_DIR$/runtimepermission" />
             <option value="$PROJECT_DIR$/samplelib" />
             <option value="$PROJECT_DIR$/savingstate" />
+            <option value="$PROJECT_DIR$/sharedprefs" />
             <option value="$PROJECT_DIR$/toast" />
             <option value="$PROJECT_DIR$/ui" />
             <option value="$PROJECT_DIR$/uithread" />
