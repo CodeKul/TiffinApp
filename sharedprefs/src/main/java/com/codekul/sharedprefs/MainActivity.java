@@ -27,9 +27,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void readPrefs(View view) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("\n Boolean - ").append(prefs.getBoolean("dataBoolean", false))
-                .append("\n String - ").append(prefs.getString("dataString", "none"));
-        ((TextView)findViewById(R.id.textInfo)).setText(builder.toString());
+        String builder = "\n Boolean - " + prefs.getBoolean("dataBoolean", false) +
+                "\n String - " + prefs.getString("dataString", "none");
+        ((TextView)findViewById(R.id.textInfo)).setText(builder);
     }
 }
