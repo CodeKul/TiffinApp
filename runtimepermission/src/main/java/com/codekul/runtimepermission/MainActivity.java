@@ -70,8 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         PERMISSION_WRITE);
             }
         }
-
-        writePublic();
+        else writePublic();
     }
 
     @Override
