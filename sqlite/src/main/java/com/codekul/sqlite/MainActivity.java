@@ -9,6 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.codekul.sqlite.domain.Car;
+import com.codekul.sqlite.domain.DaoSession;
+
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = MainActivity.class.getCanonicalName();
@@ -19,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         raw();
+
+        carInsert();
     }
 
     public void insert(View view) {
@@ -136,5 +143,20 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase sqDb = ((App) getApplication()).helper().getWritableDatabase();
         sqDb.execSQL("insert into mobile values('466', 12, 'apple')");
         sqDb.close();
+    }
+
+    private void carInsert() {
+
+        Car car = new Car();
+        car.setId(System.currentTimeMillis());
+        car.setNm("Audi");
+
+        DaoSession session = ((App)getApplication()).session();
+        session.getCarDao().insert(car);
+
+        List<Car> cars = session.getCarDao().loadAll();
+        for (Car carMy : cars) {
+            Log.i(TAG, "Fetched Car - "+carMy.getNm());
+        }
     }
 }
