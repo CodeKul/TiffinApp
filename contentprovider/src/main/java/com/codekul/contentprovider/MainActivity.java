@@ -2,6 +2,7 @@ package com.codekul.contentprovider;
 
 import android.content.ContentResolver;
 import android.database.Cursor;
+import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        readContacts();
+        readDb();
     }
 
     private void readContacts() {
@@ -36,16 +37,45 @@ public class MainActivity extends AppCompatActivity {
                 null
         );
 
-        if(cursor != null) {
+        if (cursor != null) {
             while (cursor.moveToNext()) {
                 String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
                 String num = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                 dataSet.add(name + "\n" + num);
-                Log.i("@codekul", "Name is "+name);
+                Log.i("@codekul", "Name is " + name);
             }
             cursor.close();
         }
 
-        ((ListView)findViewById(R.id.listContacts)).setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dataSet));
+        ((ListView) findViewById(R.id.listContacts)).setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dataSet));
+    }
+
+    private void readDb() {
+
+        List<String> dataSet = new ArrayList<>();
+
+        ContentResolver resolver = getContentResolver();
+
+        Cursor cursor = resolver.query(
+                Uri.parse("content://com.codekul.db.provider"),
+                null,
+                null,
+                null,
+                null
+        );
+
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                String name = cursor.getString(cursor.getColumnIndex("imei"));
+                Integer ver = cursor.getInt(cursor.getColumnIndex("ver"));
+                String os = cursor.getString(cursor.getColumnIndex("os"));
+                dataSet.add(name + "\n" + ver +"\n"+os);
+                Log.i("@codekul", "Name is " + name);
+            }
+            cursor.close();
+        }
+        else Log.i("@codekul", "Null Cursor");
+
+        ((ListView) findViewById(R.id.listContacts)).setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dataSet));
     }
 }
