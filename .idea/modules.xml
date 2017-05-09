@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/R176489AND.iml" filepath="$PROJECT_DIR$/R176489AND.iml" />
       <module fileurl="file://$PROJECT_DIR$/activitylifecycle/activitylifecycle.iml" filepath="$PROJECT_DIR$/activitylifecycle/activitylifecycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aidlclient/aidlclient.iml" filepath="$PROJECT_DIR$/aidlclient/aidlclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aidlserver/aidlserver.iml" filepath="$PROJECT_DIR$/aidlserver/aidlserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/alternativeresources/alternativeresources.iml" filepath="$PROJECT_DIR$/alternativeresources/alternativeresources.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/assests/assests.iml" filepath="$PROJECT_DIR$/assests/assests.iml" />
