@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Location</string>
+    <string name="btnData">Data</string>
+    <string name="btnMyLoc">My Loc</string>
+</resources>
