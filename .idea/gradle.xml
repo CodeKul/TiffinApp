@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/dialogs" />
             <option value="$PROJECT_DIR$/externalizingresources" />
             <option value="$PROJECT_DIR$/externalstorage" />
+            <option value="$PROJECT_DIR$/firebase" />
             <option value="$PROJECT_DIR$/fragments" />
             <option value="$PROJECT_DIR$/http" />
             <option value="$PROJECT_DIR$/intentsandintentfilters" />
