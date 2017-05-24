@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/activitylifecycle/activitylifecycle.iml" filepath="$PROJECT_DIR$/activitylifecycle/activitylifecycle.iml" />
       <module fileurl="file://$PROJECT_DIR$/aidlclient/aidlclient.iml" filepath="$PROJECT_DIR$/aidlclient/aidlclient.iml" />
       <module fileurl="file://$PROJECT_DIR$/aidlserver/aidlserver.iml" filepath="$PROJECT_DIR$/aidlserver/aidlserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alarmapp/alarmapp.iml" filepath="$PROJECT_DIR$/alarmapp/alarmapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/alternativeresources/alternativeresources.iml" filepath="$PROJECT_DIR$/alternativeresources/alternativeresources.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/assests/assests.iml" filepath="$PROJECT_DIR$/assests/assests.iml" />
@@ -24,6 +25,9 @@
       <module fileurl="file://$PROJECT_DIR$/internalstorage/internalstorage.iml" filepath="$PROJECT_DIR$/internalstorage/internalstorage.iml" />
       <module fileurl="file://$PROJECT_DIR$/listview/listview.iml" filepath="$PROJECT_DIR$/listview/listview.iml" />
       <module fileurl="file://$PROJECT_DIR$/location/location.iml" filepath="$PROJECT_DIR$/location/location.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maps/maps.iml" filepath="$PROJECT_DIR$/maps/maps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/materialdesign/materialdesign.iml" filepath="$PROJECT_DIR$/materialdesign/materialdesign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my/my.iml" filepath="$PROJECT_DIR$/my/my.iml" />
       <module fileurl="file://$PROJECT_DIR$/nesteslayout/nesteslayout.iml" filepath="$PROJECT_DIR$/nesteslayout/nesteslayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/provididngresourcesv2/provididngresourcesv2.iml" filepath="$PROJECT_DIR$/provididngresourcesv2/provididngresourcesv2.iml" />
       <module fileurl="file://$PROJECT_DIR$/relativelayout/relativelayout.iml" filepath="$PROJECT_DIR$/relativelayout/relativelayout.iml" />

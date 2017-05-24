@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/activitylifecycle" />
             <option value="$PROJECT_DIR$/aidlclient" />
             <option value="$PROJECT_DIR$/aidlserver" />
+            <option value="$PROJECT_DIR$/alarmapp" />
             <option value="$PROJECT_DIR$/alternativeresources" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/assests" />
@@ -29,6 +30,9 @@
             <option value="$PROJECT_DIR$/internalstorage" />
             <option value="$PROJECT_DIR$/listview" />
             <option value="$PROJECT_DIR$/location" />
+            <option value="$PROJECT_DIR$/maps" />
+            <option value="$PROJECT_DIR$/materialdesign" />
+            <option value="$PROJECT_DIR$/my" />
             <option value="$PROJECT_DIR$/nesteslayout" />
             <option value="$PROJECT_DIR$/provididngresourcesv2" />
             <option value="$PROJECT_DIR$/relativelayout" />

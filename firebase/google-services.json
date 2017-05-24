@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "182256850456",
+    "firebase_url": "https://digital-shelter-153912.firebaseio.com",
+    "project_id": "digital-shelter-153912",
+    "storage_bucket": "digital-shelter-153912.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182256850456:android:43a817df95dacb57",
+        "android_client_info": {
+          "package_name": "com.codekul.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "182256850456-hnspu5m2602dppnl43pkla8hv0odski3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQHIR8pILHLekuBE3xbj7xBj0axAQGUgc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

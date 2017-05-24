@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.codekul.materialdesign.MainActivity">
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Cut"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/actCopy"
+        android:orderInCategory="100"
+        android:title="Copy"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/actCut"
+        android:orderInCategory="101"
+        android:title="Cut"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_content_cut_black_24dp"/>
+</menu>

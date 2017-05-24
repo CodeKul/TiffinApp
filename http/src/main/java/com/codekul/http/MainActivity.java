@@ -8,7 +8,9 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -18,6 +20,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.codekul.http.domain.ExWeather;
 
 import org.json.JSONException;
@@ -91,10 +94,13 @@ public class MainActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        int i = 10;
         ((App) getApplication()).q().add(
                 new JsonObjectRequest("https://digital-shelter-153912.firebaseio.com/weather.json",
                         jsonObject,
-                        res -> {},
+                        res -> {
+
+                        },
                         err ->{})
         );
     }
@@ -132,5 +138,35 @@ public class MainActivity extends AppCompatActivity {
                 };
 
         ((App)getApplication()).q().add(request);
+    }
+
+    public void oauth(View view) {
+        ((App)getApplication()).q().add(
+                new StringRequest(Request.Method.POST,"http://ec2-54-68-167-166.us-west-2.compute.amazonaws.com:9001/authorizationserver/oauth/token", res -> {
+
+                    Log.i("@codekul",""+res);
+                }, err->{
+                    Log.i("@codekul",""+err.getMessage());
+                }) {
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        HashMap<String, String> params = new HashMap<>();
+                        String creds = String.format("%s:%s","melayer","melayer");
+                        String auth = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
+                        params.put("Authorization", auth);
+                        params.put("Accept","application/json");
+                        params.put("Content-Type","application/x-www-form-urlencoded");
+                        Log.i("@codekul", "Auth - "+auth);
+                        return params;
+                    }
+
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String,String> params=new HashMap<>();
+                        params.put("grant_type","client_credentials");
+                        return params;
+                    }
+                }
+        );
     }
 }
