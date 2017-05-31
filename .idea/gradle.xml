@@ -16,7 +16,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/assests" />
             <option value="$PROJECT_DIR$/broadcastreceivers" />
+            <option value="$PROJECT_DIR$/camera" />
             <option value="$PROJECT_DIR$/compoundview" />
+            <option value="$PROJECT_DIR$/constraintlayout" />
             <option value="$PROJECT_DIR$/contentprovider" />
             <option value="$PROJECT_DIR$/customview" />
             <option value="$PROJECT_DIR$/dialogs" />
@@ -25,6 +27,7 @@
             <option value="$PROJECT_DIR$/firebase" />
             <option value="$PROJECT_DIR$/fragments" />
             <option value="$PROJECT_DIR$/http" />
+            <option value="$PROJECT_DIR$/imagemodule" />
             <option value="$PROJECT_DIR$/intentsandintentfilters" />
             <option value="$PROJECT_DIR$/interactvitycommunication" />
             <option value="$PROJECT_DIR$/internalstorage" />
@@ -33,6 +36,7 @@
             <option value="$PROJECT_DIR$/maps" />
             <option value="$PROJECT_DIR$/materialdesign" />
             <option value="$PROJECT_DIR$/my" />
+            <option value="$PROJECT_DIR$/navdrawer" />
             <option value="$PROJECT_DIR$/nesteslayout" />
             <option value="$PROJECT_DIR$/provididngresourcesv2" />
             <option value="$PROJECT_DIR$/relativelayout" />
@@ -42,6 +46,7 @@
             <option value="$PROJECT_DIR$/services" />
             <option value="$PROJECT_DIR$/sharedprefs" />
             <option value="$PROJECT_DIR$/sqlite" />
+            <option value="$PROJECT_DIR$/tabs" />
             <option value="$PROJECT_DIR$/toast" />
             <option value="$PROJECT_DIR$/ui" />
             <option value="$PROJECT_DIR$/uithread" />
