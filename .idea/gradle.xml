@@ -53,6 +53,7 @@
             <option value="$PROJECT_DIR$/viewanimations" />
             <option value="$PROJECT_DIR$/viewproperties" />
             <option value="$PROJECT_DIR$/weighted" />
+            <option value="$PROJECT_DIR$/wifi" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,7 +1,6 @@
 package com.codekul.camera;
 
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -9,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,6 +21,7 @@ import me.shaohui.advancedluban.Luban;
 public class MainActivity extends AppCompatActivity {
 
     public static int REQ_CAPTURE = 1234;
+    public static int REQ_VIDEO = 4567;
     private Uri imageUri;
     private File captured;
 
@@ -42,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void record(View view) {
 
+        captured = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM), System.currentTimeMillis() + ".mp4");
+        Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        takeVideoIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 30);
+        takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, captured.getPath());
+        startActivityForResult(takeVideoIntent, REQ_VIDEO);
     }
 
     @Override
@@ -60,7 +67,14 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }*/
 
-              compress(captured);
+                compress(captured);
+            }
+        }
+        else if(requestCode == REQ_VIDEO) {
+            if(resultCode == RESULT_OK) {
+                VideoView view = ((VideoView)findViewById(R.id.video));
+                view.setMediaController(new MediaController(this));
+                view.setVideoURI(data.getData());
             }
         }
     }
@@ -73,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void accept(File file) throws Exception {
 
-                        byte []imgByts = new byte[(int) file.length()];
+                        byte[] imgByts = new byte[(int) file.length()];
                         FileInputStream fis = new FileInputStream(file);
                         fis.read(imgByts);
                         fis.close();
@@ -82,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                         fos.write(imgByts);
                         fos.close();
 
-                        ((ImageView)findViewById(R.id.imageView)).setImageURI(Uri.fromFile(file));
+                        ((ImageView) findViewById(R.id.imageView)).setImageURI(Uri.fromFile(file));
                     }
                 }, new Consumer<Throwable>() {
                     @Override
