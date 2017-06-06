@@ -38,6 +38,7 @@
       <module fileurl="file://$PROJECT_DIR$/runtimepermission/runtimepermission.iml" filepath="$PROJECT_DIR$/runtimepermission/runtimepermission.iml" />
       <module fileurl="file://$PROJECT_DIR$/samplelib/samplelib.iml" filepath="$PROJECT_DIR$/samplelib/samplelib.iml" />
       <module fileurl="file://$PROJECT_DIR$/savingstate/savingstate.iml" filepath="$PROJECT_DIR$/savingstate/savingstate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sensors/sensors.iml" filepath="$PROJECT_DIR$/sensors/sensors.iml" />
       <module fileurl="file://$PROJECT_DIR$/services/services.iml" filepath="$PROJECT_DIR$/services/services.iml" />
       <module fileurl="file://$PROJECT_DIR$/sharedprefs/sharedprefs.iml" filepath="$PROJECT_DIR$/sharedprefs/sharedprefs.iml" />
       <module fileurl="file://$PROJECT_DIR$/sqlite/sqlite.iml" filepath="$PROJECT_DIR$/sqlite/sqlite.iml" />
