@@ -46,7 +46,9 @@
             <option value="$PROJECT_DIR$/services" />
             <option value="$PROJECT_DIR$/sharedprefs" />
             <option value="$PROJECT_DIR$/sqlite" />
+            <option value="$PROJECT_DIR$/statusbarnotifications" />
             <option value="$PROJECT_DIR$/tabs" />
+            <option value="$PROJECT_DIR$/telephony" />
             <option value="$PROJECT_DIR$/toast" />
             <option value="$PROJECT_DIR$/ui" />
             <option value="$PROJECT_DIR$/uithread" />
