@@ -12,6 +12,9 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by aniruddha on 7/6/17.
  */
@@ -73,19 +76,14 @@ public class SyncUtils {
         }));
     }
 
-    private void upload(final OnSyncCallback callback) {
-        post("", new JSONObject(), new OnPostCallback() {
+    private void upload(final OnSyncCallback callback, JSONObject obj) {
+        post("", obj, new OnPostCallback() {
             @Override
             public void onPost(JSONObject obj) {
                 delete(new OnDeleteCallback() {
                     @Override
                     public void onDelete() {
-                        receive(new OnReceiveCallback() {
-                            @Override
-                            public void onReceive(String res) {
-                                callback.onSync();
-                            }
-                        });
+
                     }
                 });
             }
@@ -107,6 +105,17 @@ public class SyncUtils {
     }
 
     public void performSync(OnSyncCallback syncCallback) {
-        upload(syncCallback);
+
+        List<JSONObject> objs = new ArrayList<>();
+        for (JSONObject obj : objs) {
+            upload(syncCallback, obj);
+        }
+
+        receive(new OnReceiveCallback() {
+            @Override
+            public void onReceive(String res) {
+
+            }
+        });
     }
 }
