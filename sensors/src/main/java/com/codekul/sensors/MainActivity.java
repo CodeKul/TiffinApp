@@ -1,9 +1,11 @@
 package com.codekul.sensors;
 
+import android.app.ProgressDialog;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         manager.registerListener(new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
-                ((TextView)findViewById(R.id.txtInfo)).setText(""+event.values[0]);
+                ((TextView) findViewById(R.id.txtInfo)).setText("" + event.values[0]);
             }
 
             @Override
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         manager.registerListener(new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
-                ((TextView)findViewById(R.id.txtInfo)).setText(""+event.values[0]);
+                ((TextView) findViewById(R.id.txtInfo)).setText("" + event.values[0]);
             }
 
             @Override
@@ -65,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
         manager.registerListener(new SensorEventListener() {
             @Override
             public void onSensorChanged(SensorEvent event) {
-                String data = "X - "+event.values[0] + " Y - " + event.values[1] + " Z - "+event.values[2];
-                ((TextView)findViewById(R.id.txtInfo)).setText(data);
+                String data = "X - " + event.values[0] + " Y - " + event.values[1] + " Z - " + event.values[2];
+                ((TextView) findViewById(R.id.txtInfo)).setText(data);
             }
 
             @Override
@@ -74,5 +76,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    private void startSync() {
+        SyncUtils utils = new SyncUtils(this);
+        final ProgressDialog pd = ProgressDialog.show(this, "Title", "Msg");
+        utils.performSync(new SyncUtils.OnSyncCallback() {
+            @Override
+            public void onSync() {
+                pd.dismiss();
+            }
+        });
     }
 }
