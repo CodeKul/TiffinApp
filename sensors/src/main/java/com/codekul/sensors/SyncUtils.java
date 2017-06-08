@@ -7,6 +7,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.RequestFuture;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -14,6 +15,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by aniruddha on 7/6/17.
@@ -39,7 +41,7 @@ public class SyncUtils {
         void onReceive(String res);
     }
 
-    public interface OnPostCallback{
+    public interface OnPostCallback {
         void onPost(JSONObject obj);
     }
 
@@ -76,6 +78,7 @@ public class SyncUtils {
         }));
     }
 
+    @Deprecated
     private void upload(final OnSyncCallback callback, JSONObject obj) {
         post("", obj, new OnPostCallback() {
             @Override
@@ -90,11 +93,13 @@ public class SyncUtils {
         });
     }
 
+    @Deprecated
     private void delete(OnDeleteCallback callback) {
-        //delete from sqlite
+        //delete row from sqlite
         callback.onDelete();
     }
 
+    @Deprecated
     private void receive(final OnReceiveCallback callback) {
         get("", new OnGetCallback() {
             @Override
@@ -104,18 +109,77 @@ public class SyncUtils {
         });
     }
 
+    @Deprecated
     public void performSync(OnSyncCallback syncCallback) {
 
-        List<JSONObject> objs = new ArrayList<>();
+        final List<JSONObject> objs = new ArrayList<>();
         for (JSONObject obj : objs) {
             upload(syncCallback, obj);
         }
 
+        que.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<JSONObject>() {
+            @Override
+            public void onRequestFinished(Request<JSONObject> request) {
+               if(que.getSequenceNumber() >= objs.size()) {
+                   receive(new OnReceiveCallback() {
+                       @Override
+                       public void onReceive(String res) {
+
+                       }
+                   });
+               }
+            }
+        });
+    }
+
+    public void performSyncBlocking() {
+        final List<JSONObject> objs = new ArrayList<>();
+        for (JSONObject obj : objs) {
+            postBlocking("", obj);
+        }
+
+        delete(new OnDeleteCallback() {
+            @Override
+            public void onDelete() {
+
+            }
+        });
         receive(new OnReceiveCallback() {
             @Override
             public void onReceive(String res) {
 
             }
         });
+    }
+
+    public JSONObject postBlocking(String url, JSONObject obj){
+        JSONObject resObj = null;
+        RequestFuture<JSONObject> future = RequestFuture.newFuture();
+        que.add(new JsonObjectRequest(Request.Method.POST, url, obj, future,future));
+        try {
+            resObj = future.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return resObj;
+    }
+
+    public String getBlocking(String url) {
+        String res = "";
+
+        RequestFuture<String> future = RequestFuture.newFuture();
+        que.add(new StringRequest(url,future, future));
+
+        try {
+            res = future.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        return res;
     }
 }
