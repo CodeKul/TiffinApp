@@ -268,8 +268,9 @@ public class SyncUtils {
         };
     }
 
-    public void postMultiPart(final int i) {
+    public JSONObject postMultiPart(final int i) {
 
+        JSONObject result = null;
         RequestFuture<NetworkResponse> future = RequestFuture.newFuture();
 
         String url = "http://192.168.2.50:8080/ekam/sync/RAM";
@@ -299,7 +300,7 @@ public class SyncUtils {
             if(response.statusCode == 200) {
                 String resultResponse = new String(response.data);
                 try {
-                    JSONObject result = new JSONObject(resultResponse);
+                    result = new JSONObject(resultResponse);
                     String status = result.getString("Status");
                     Log.i("@codekul", "Status is " + status);
 
@@ -312,5 +313,6 @@ public class SyncUtils {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+        return result;
     }
 }
