@@ -1,6 +1,7 @@
 package com.codekul.sensors;
 
 import android.content.Context;
+import android.os.Environment;
 import android.util.Log;
 
 import com.android.volley.NetworkResponse;
@@ -18,6 +19,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -289,7 +292,12 @@ public class SyncUtils {
             @Override
             protected Map<String, DataPart> getByteData() {
                 Map<String, DataPart> params = new HashMap<>();
-                params.put("file", new DataPart(i+".png", AppHelper.getFileDataFromDrawable(context, R.mipmap.ic_launcher_round), "image/jpeg"));
+                //params.put("file", new DataPart(i+".png", AppHelper.getFileDataFromDrawable(context, R.mipmap.ic_launcher_round), "image/jpeg"));
+                try {
+                    params.put("file", new DataPart(i+".png", AppHelper.fileBytes(new File("")), "image/jpeg"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 return params;
             }
         };
