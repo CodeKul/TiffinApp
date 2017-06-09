@@ -296,14 +296,16 @@ public class SyncUtils {
 
         try {
             NetworkResponse response = future.get();
-            String resultResponse = new String(response.data);
-            try {
-                JSONObject result = new JSONObject(resultResponse);
-                String status = result.getString("Status");
-                Log.i("@codekul", "Status is "+status);
+            if(response.statusCode == 200) {
+                String resultResponse = new String(response.data);
+                try {
+                    JSONObject result = new JSONObject(resultResponse);
+                    String status = result.getString("Status");
+                    Log.i("@codekul", "Status is " + status);
 
-            } catch (JSONException e) {
-                e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
