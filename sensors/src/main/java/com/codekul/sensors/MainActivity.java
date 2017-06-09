@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.List;
@@ -30,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         accln();
+    }
+
+    public void onOkay(View view) {
+        startSync();
     }
 
     private void light() {
@@ -79,13 +84,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startSync() {
-        SyncUtils utils = new SyncUtils(this);
-        final ProgressDialog pd = ProgressDialog.show(this, "Title", "Msg");
-        utils.performSync(new SyncUtils.OnSyncCallback() {
+        final SyncUtils utils = new SyncUtils(this);
+
+        new Thread(new Runnable() {
             @Override
-            public void onSync() {
-                pd.dismiss();
+            public void run() {
+                for(int i = 1; i<=10  ;i++)
+                    utils.postMultiPart(i);
             }
-        });
+        }).start();
     }
 }
