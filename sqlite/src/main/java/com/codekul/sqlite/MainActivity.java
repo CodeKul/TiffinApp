@@ -142,6 +142,10 @@ public class MainActivity extends AppCompatActivity {
     public void raw() {
         SQLiteDatabase sqDb = ((App) getApplication()).helper().getWritableDatabase();
         sqDb.execSQL("insert into mobile values('466', 12, 'apple')");
+
+
+
+
         sqDb.close();
     }
 
