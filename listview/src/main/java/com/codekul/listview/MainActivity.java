@@ -3,6 +3,7 @@ package com.codekul.listview;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        imageAdapter();
+        projectList();
     }
 
     private void imageAdapter() {
@@ -65,5 +66,34 @@ public class MainActivity extends AppCompatActivity {
         ImageAdapter adapter = (ImageAdapter) ((ListView)findViewById(R.id.listView)).getAdapter();
         ImageItem item = new ImageItem(System.currentTimeMillis(), R.mipmap.ic_launcher_round, ((EditText) findViewById(R.id.edtName)).getText().toString());
         adapter.addNewItem(item);
+    }
+
+    public void projectList() {
+
+        // fetch cursor data here and make list
+        final List<CustomItem> items = new ArrayList<>();
+        items.add(new CustomItem(R.drawable.plane, "Name", "Val1","Val2","Val3"));
+        items.add(new CustomItem(R.drawable.plane, "Name", "Val1","Val2","Val3"));
+        items.add(new CustomItem(R.drawable.plane, "Name", "Val1","Val2","Val3"));
+        items.add(new CustomItem(R.drawable.plane, "Name", "Val1","Val2","Val3"));
+        items.add(new CustomItem(R.drawable.plane, "Name", "Val1","Val2","Val3"));
+        items.add(new CustomItem(R.drawable.plane, "Name", "Val1","Val2","Val3"));
+        items.add(new CustomItem(R.drawable.plane, "Name", "Val1","Val2","Val3"));
+        items.add(new CustomItem(R.drawable.plane, "Name", "Val1","Val2","Val3"));
+        items.add(new CustomItem(R.drawable.plane, "Name", "Val1","Val2","Val3"));
+        items.add(new CustomItem(R.drawable.plane, "Name", "Val1","Val2","Val3"));
+        items.add(new CustomItem(R.drawable.plane, "Name", "Val1","Val2","Val3"));
+
+        final CustomAdapter adapter = new CustomAdapter(this, items);
+        ((ListView)findViewById(R.id.listView)).setAdapter(adapter);
+        ((ListView)findViewById(R.id.listView)).setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                CustomItem item = (CustomItem) adapter.getItem(position);
+                Log.i("@codekul","Name is "+item.nm);
+            }
+        });
+
     }
 }
