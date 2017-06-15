@@ -1,7 +1,6 @@
 package com.codekul.sensors;
 
 import android.content.Context;
-import android.os.Environment;
 import android.util.Log;
 
 import com.android.volley.NetworkResponse;
@@ -26,6 +25,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * Created by aniruddha on 7/6/17.
@@ -132,42 +133,21 @@ public class SyncUtils {
         que.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<JSONObject>() {
             @Override
             public void onRequestFinished(Request<JSONObject> request) {
-               if(que.getSequenceNumber() >= objs.size()) {
-                   receive(new OnReceiveCallback() {
-                       @Override
-                       public void onReceive(String res) {
+                if (que.getSequenceNumber() >= objs.size()) {
+                    receive(new OnReceiveCallback() {
+                        @Override
+                        public void onReceive(String res) {
 
-                       }
-                   });
-               }
+                        }
+                    });
+                }
             }
         });
     }
-
-    public void performSyncBlocking() {
-        final List<JSONObject> objs = new ArrayList<>();
-
-        for (int i = 0 ;i <10 ;i++)
-            postMultiPart(i);
-
-        delete(new OnDeleteCallback() {
-            @Override
-            public void onDelete() {
-
-            }
-        });
-        receive(new OnReceiveCallback() {
-            @Override
-            public void onReceive(String res) {
-
-            }
-        });
-    }
-
-    public JSONObject postBlocking(String url, JSONObject obj){
+    public JSONObject postBlocking(String url, JSONObject obj) {
         JSONObject resObj = null;
         RequestFuture<JSONObject> future = RequestFuture.newFuture();
-        que.add(new JsonObjectRequest(Request.Method.POST, url, obj, future,future));
+        que.add(new JsonObjectRequest(Request.Method.POST, url, obj, future, future));
         try {
             resObj = future.get();
         } catch (InterruptedException e) {
@@ -178,19 +158,13 @@ public class SyncUtils {
         return resObj;
     }
 
-    public String getBlocking(String url) {
+    public String getBlocking(String url) throws InterruptedException, ExecutionException, TimeoutException {
         String res = "";
 
         RequestFuture<String> future = RequestFuture.newFuture();
-        que.add(new StringRequest(url,future, future));
+        que.add(new StringRequest(url, future, future));
 
-        try {
-            res = future.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+        res = future.get(30, TimeUnit.SECONDS);
 
         return res;
     }
@@ -235,11 +209,11 @@ public class SyncUtils {
                         if (networkResponse.statusCode == 404) {
                             errorMessage = "Resource not found";
                         } else if (networkResponse.statusCode == 401) {
-                            errorMessage = message+" Please login again";
+                            errorMessage = message + " Please login again";
                         } else if (networkResponse.statusCode == 400) {
-                            errorMessage = message+ " Check your inputs";
+                            errorMessage = message + " Check your inputs";
                         } else if (networkResponse.statusCode == 500) {
-                            errorMessage = message+" Something is getting wrong";
+                            errorMessage = message + " Something is getting wrong";
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -271,7 +245,7 @@ public class SyncUtils {
         };
     }
 
-    public JSONObject postMultiPart(final int i) {
+    public JSONObject postMultiPart(final int i) throws ExecutionException, InterruptedException {
 
         JSONObject result = null;
         RequestFuture<NetworkResponse> future = RequestFuture.newFuture();
@@ -282,7 +256,7 @@ public class SyncUtils {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put("username", "aniruddha@codekul.com");
-                params.put("outletcode", ""+i);
+                params.put("outletcode", "" + i);
                 params.put("longitude", "72.58");
                 params.put("latitude", "18.8956");
                 params.put("updatetimestamp", "9887978675");
@@ -294,7 +268,7 @@ public class SyncUtils {
                 Map<String, DataPart> params = new HashMap<>();
                 //params.put("file", new DataPart(i+".png", AppHelper.getFileDataFromDrawable(context, R.mipmap.ic_launcher_round), "image/jpeg"));
                 try {
-                    params.put("file", new DataPart(i+".png", AppHelper.fileBytes(new File("")), "image/jpeg"));
+                    params.put("file", new DataPart(i + ".png", AppHelper.fileBytes(new File("")), "image/jpeg"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -303,24 +277,19 @@ public class SyncUtils {
         };
         que.add(multipartRequest);
 
-        try {
-            NetworkResponse response = future.get();
-            if(response.statusCode == 200) {
-                String resultResponse = new String(response.data);
-                try {
-                    result = new JSONObject(resultResponse);
-                    String status = result.getString("Status");
-                    Log.i("@codekul", "Status is " + status);
+        NetworkResponse response = future.get();
+        if (response.statusCode == 200) {
+            String resultResponse = new String(response.data);
+            try {
+                result = new JSONObject(resultResponse);
+                String status = result.getString("Status");
+                Log.i("@codekul", "Status is " + status);
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
         }
+
         return result;
     }
 }
